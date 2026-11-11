@@ -1,23 +1,28 @@
-# Catálogo Navideño 2026 — versión web
+# Catálogo Navideño 2026
 
-Sitio estático y adaptable a móviles para mostrar el catálogo de 19 artículos distribuidos en cuatro colecciones.
+Sitio web estático y adaptable a móviles con 19 productos en cuatro colecciones.
 
-## Contenido
-- `index.html` y `styles.css`: sitio y su diseño.
-- `app.js`: navegación ampliada y función de compartir.
-- `assets/*.webp`: las cinco páginas ilustradas.
-- `catalogo-navideno-2026.pdf`: PDF descargable.
-- `GENERAR-QR.html`: generador que convierte el enlace definitivo en QR descargable.
-- `vercel.json`: configuración para Vercel.
+## Archivos
+- `index.html`, `styles.css` y `app.js`: catálogo interactivo.
+- `assets/*.webp`: cinco páginas con imágenes ilustrativas.
+- `catalogo-navideno-2026.pdf`: PDF completo de cinco páginas.
+- `GENERAR-QR.html`: generador de código QR para la URL de producción.
+- `vercel.json`: cabeceras de seguridad y configuración de Vercel.
 
-## Publicación
-1. Crear un repositorio vacío, público y nuevo en GitHub con el nombre `catalogo-navidad-2026` bajo la cuenta `waldjos`.
-2. Subir **el contenido de esta carpeta** a la raíz del repositorio, conservando nombres y carpeta `assets`.
-3. En Vercel, importar el repositorio nuevo. El proyecto es estático: Framework Preset: `Other`, Root Directory: `./`, Build Command: vacío y Output Directory: vacío.
-4. Seleccionar `Production` y desplegar. Verificar que se carguen las imágenes y que funcione el botón "Descargar PDF".
-5. Abrir `GENERAR-QR.html`, pegar la URL definitiva proporcionada por Vercel y pulsar «Crear QR».
+## GitHub
+Repositorio: https://github.com/waldjos/Cat-logo-navidad-
+Rama: `main`. Todas las imágenes y el PDF están incluidos en el repositorio.
 
-Este paquete no representa un despliegue publicado hasta que Vercel confirme una URL en estado Ready.
+## Desplegar en Vercel
+1. Entrar a https://vercel.com/new
+2. Seleccionar la cuenta o equipo deseado e importar `waldjos/Cat-logo-navidad-`.
+3. Configurar `Framework Preset: Other` y `Root Directory: ./`. No se necesitan variables de entorno, build command ni instalación.
+4. Pulsar `Deploy` y comprobar que el estado sea `Ready`.
+5. Abrir el enlace de producción, verificar imágenes, navegación y botón PDF.
+6. Abrir `/GENERAR-QR` desde el despliegue, pegar el enlace definitivo y generar el QR.
 
-## Aviso sobre las fotografías
-Las imágenes son representaciones ilustrativas de diseño y no fotografías verificadas de stock o inventario físico. Es necesario confirmar los modelos y acabados antes de cotizar.
+## Estado
+El contenido está publicado en GitHub. La creación remota del proyecto en Vercel fue denegada con permiso 403 desde la conexión automatizada; debe completarse en la interfaz de Vercel. No se debe imprimir un QR definitivo antes de comprobar el enlace de producción.
+
+## Fotografías
+Las imágenes son ilustrativas y no constituyen evidencia de inventario físico. Confirmar modelos, acabados y disponibilidad antes de presupuestar.
