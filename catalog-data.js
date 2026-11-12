@@ -6,10 +6,11 @@ window.ECLIPSE_PRODUCTS = [
     "category": "destacados",
     "categoryLabel": "Destacados Eclipse",
     "desc": "Una taza con nombre, mensaje o diseño de temporada.",
-    "image": "/assets/mug-grinch.webp",
+    "image": "/assets/editorial/mug-navidena-editorial.webp",
     "pos": "center",
     "tag": "Idea de regalo",
-    "imageType": "real"
+    "imageType": "editorial",
+    "originalImage": "/assets/mug-grinch.webp"
   },
   {
     "id": "termo-navideno",
@@ -17,10 +18,22 @@ window.ECLIPSE_PRODUCTS = [
     "category": "destacados",
     "categoryLabel": "Destacados Eclipse",
     "desc": "Personaliza tu vaso con detalles para celebrar la temporada.",
-    "image": "/assets/vaso-luces.webp",
+    "image": "/assets/editorial/termo-navideno-editorial.webp",
     "pos": "center",
     "tag": "Personalizable",
-    "imageType": "real"
+    "imageType": "editorial",
+    "originalImage": "/assets/vaso-luces.webp"
+  },
+  {
+    "id": "mate-navideno",
+    "name": "Mate navideño personalizado",
+    "category": "destacados",
+    "categoryLabel": "Destacados Eclipse",
+    "desc": "Mate personalizado con un diseño navideño. Imagen ambientada de referencia; consulta modelos y acabados disponibles.",
+    "image": "/assets/editorial/mate-navideno-editorial.webp",
+    "pos": "center",
+    "tag": "Navidad Eclipse",
+    "imageType": "editorial"
   },
   {
     "id": "vaso-lata-grinch",
@@ -39,10 +52,11 @@ window.ECLIPSE_PRODUCTS = [
     "category": "corporativos",
     "categoryLabel": "Corporativos",
     "desc": "Un detalle práctico para regalar con tu identidad.",
-    "image": "/assets/boligrafos.webp",
+    "image": "/assets/editorial/boligrafo-ejecutivo-editorial.webp",
     "pos": "center",
     "tag": "Corporativo",
-    "imageType": "real"
+    "imageType": "editorial",
+    "originalImage": "/assets/boligrafos.webp"
   },
   {
     "id": "vasos-cafe",
@@ -116,10 +130,11 @@ window.ECLIPSE_PRODUCTS = [
     "category": "adornos",
     "categoryLabel": "Adornos",
     "desc": "Lleva la imagen de tu empresa al árbol de Navidad.",
-    "image": "/assets/ornamentos-acrilicos.webp",
+    "image": "/assets/editorial/bambalina-acrilica-editorial.webp",
     "pos": "center",
     "tag": "Navideño",
-    "imageType": "real"
+    "imageType": "editorial",
+    "originalImage": "/assets/ornamentos-acrilicos.webp"
   },
   {
     "id": "acrilicos-planos",
@@ -127,10 +142,11 @@ window.ECLIPSE_PRODUCTS = [
     "category": "adornos",
     "categoryLabel": "Adornos",
     "desc": "Figuras planas en acrílico para nombres o marcas.",
-    "image": "/assets/ornamentos-acrilicos.webp",
+    "image": "/assets/editorial/bambalina-acrilica-editorial.webp",
     "pos": "center",
     "tag": "Personalizable",
-    "imageType": "real"
+    "imageType": "editorial",
+    "originalImage": "/assets/ornamentos-acrilicos.webp"
   },
   {
     "id": "burbujas",
@@ -138,10 +154,11 @@ window.ECLIPSE_PRODUCTS = [
     "category": "adornos",
     "categoryLabel": "Adornos",
     "desc": "Adornos transparentes con detalles en su interior.",
-    "image": "/assets/bambalina-burbuja.webp",
+    "image": "/assets/editorial/bambalina-foto-editorial.webp",
     "pos": "center",
     "tag": "Especial",
-    "imageType": "real"
+    "imageType": "editorial",
+    "originalImage": "/assets/bambalina-burbuja.webp"
   },
   {
     "id": "saquitos",
@@ -215,10 +232,11 @@ window.ECLIPSE_PRODUCTS = [
     "category": "navidad",
     "categoryLabel": "Colección navideña",
     "desc": "Una opción moderna y reutilizable.",
-    "image": "/assets/vaso-cascanueces.webp",
+    "image": "/assets/editorial/vaso-bambu-festivo-editorial.webp",
     "pos": "center",
     "tag": "Destacado",
-    "imageType": "real"
+    "imageType": "editorial",
+    "originalImage": "/assets/vaso-cascanueces.webp"
   },
   {
     "id": "tazas-espejo",
