@@ -9,24 +9,24 @@
   };
   // Crops of the catalog's existing visual pages. Can be swapped for product photos without changing the design.
   const products = [
-    {id:'mug-navideno',name:'Mug navideño personalizado',category:'destacados',categoryLabel:'Destacados Eclipse',desc:'Una taza con nombre, mensaje o diseño de temporada.',image:photos.corporativos,pos:'100% 30%',tag:'Idea de regalo'},
-    {id:'termo-navideno',name:'Vaso térmico navideño',category:'destacados',categoryLabel:'Destacados Eclipse',desc:'Personaliza tu vaso con detalles para celebrar la temporada.',image:photos.corporativos,pos:'0% 66%',tag:'Personalizable'},
-    {id:'boligrafos',name:'Bolígrafos personalizados',category:'corporativos',categoryLabel:'Corporativos',desc:'Un detalle práctico para regalar con tu identidad.',image:photos.corporativos,pos:'0% 30%',tag:'Corporativo'},
-    {id:'vasos-cafe',name:'Vasos para café',category:'corporativos',categoryLabel:'Corporativos',desc:'Opciones para oficina, eventos y obsequios de marca.',image:photos.corporativos,pos:'100% 30%',tag:'Personalizable'},
+    {id:'mug-navideno',name:'Mug navideño personalizado',category:'destacados',categoryLabel:'Destacados Eclipse',desc:'Una taza con nombre, mensaje o diseño de temporada.',image:'/assets/mug-grinch.webp',pos:'center',tag:'Idea de regalo'},
+    {id:'termo-navideno',name:'Vaso térmico navideño',category:'destacados',categoryLabel:'Destacados Eclipse',desc:'Personaliza tu vaso con detalles para celebrar la temporada.',image:'/assets/vaso-luces.webp',pos:'center',tag:'Personalizable'},
+    {id:'boligrafos',name:'Bolígrafos personalizados',category:'corporativos',categoryLabel:'Corporativos',desc:'Un detalle práctico para regalar con tu identidad.',image:'/assets/boligrafos.webp',pos:'center',tag:'Corporativo'},
+    {id:'vasos-cafe',name:'Vasos para café',category:'corporativos',categoryLabel:'Corporativos',desc:'Opciones para oficina, eventos y obsequios de marca.',image:'/assets/vasos-cafe.webp',pos:'center',tag:'Personalizable'},
     {id:'vaso-vinero',name:'Vaso vinero',category:'corporativos',categoryLabel:'Corporativos',desc:'Un regalo con estilo para ocasiones especiales.',image:photos.corporativos,pos:'0% 66%',tag:'Para regalar'},
     {id:'calendarios-imantados',name:'Calendarios imantados A5',category:'corporativos',categoryLabel:'Corporativos',desc:'Calendario práctico con diseño empresarial.',image:photos.corporativos,pos:'100% 66%',tag:'Para empresas'},
     {id:'pizarras-aluminio',name:'Calendarios y pizarras',category:'corporativos',categoryLabel:'Corporativos',desc:'Opciones con estructura de aluminio para organizarte.',image:photos.corporativos,pos:'0% 100%',tag:'Corporativo'},
     {id:'bolsas-pop',name:'Bolsas POP personalizadas',category:'corporativos',categoryLabel:'Corporativos',desc:'Presenta regalos y promociones con tu logotipo.',image:photos.corporativos,pos:'100% 100%',tag:'Con tu marca'},
-    {id:'bambalinas-logo',name:'Bambalinas con logo',category:'adornos',categoryLabel:'Adornos',desc:'Lleva la imagen de tu empresa al árbol de Navidad.',image:photos.adornos,pos:'0% 33%',tag:'Navideño'},
-    {id:'acrilicos-planos',name:'Ornamentos acrílicos',category:'adornos',categoryLabel:'Adornos',desc:'Figuras planas en acrílico para nombres o marcas.',image:photos.adornos,pos:'100% 33%',tag:'Personalizable'},
-    {id:'burbujas',name:'Bambalinas tipo burbuja',category:'adornos',categoryLabel:'Adornos',desc:'Adornos transparentes con detalles en su interior.',image:photos.adornos,pos:'0% 71%',tag:'Especial'},
+    {id:'bambalinas-logo',name:'Bambalinas con logo',category:'adornos',categoryLabel:'Adornos',desc:'Lleva la imagen de tu empresa al árbol de Navidad.',image:'/assets/ornamentos-acrilicos.webp',pos:'center',tag:'Navideño'},
+    {id:'acrilicos-planos',name:'Ornamentos acrílicos',category:'adornos',categoryLabel:'Adornos',desc:'Figuras planas en acrílico para nombres o marcas.',image:'/assets/ornamentos-acrilicos.webp',pos:'center',tag:'Personalizable'},
+    {id:'burbujas',name:'Bambalinas tipo burbuja',category:'adornos',categoryLabel:'Adornos',desc:'Adornos transparentes con detalles en su interior.',image:'/assets/bambalina-burbuja.webp',pos:'center',tag:'Especial'},
     {id:'saquitos',name:'Saquitos de cotillón',category:'adornos',categoryLabel:'Adornos',desc:'Presentaciones pequeñas para dulces y recuerdos.',image:photos.adornos,pos:'100% 71%',tag:'Para regalar'},
     {id:'banderines',name:'Banderines decorativos',category:'adornos',categoryLabel:'Adornos',desc:'Guirnaldas festivas para decorar tus espacios.',image:photos.adornos,pos:'50% 100%',tag:'Decoración'},
     {id:'mini-lanyards',name:'Mini lanyards',category:'accesorios',categoryLabel:'Accesorios',desc:'Cintas cortas con enganche para personalización.',image:photos.accesorios,pos:'0% 34%',tag:'Útil'},
-    {id:'llaveros',name:'Llaveros acrílicos',category:'accesorios',categoryLabel:'Accesorios',desc:'Llaveros con diseños, nombres o marca.',image:photos.accesorios,pos:'100% 34%',tag:'Personalizable'},
-    {id:'latas',name:'Latas para regalos',category:'accesorios',categoryLabel:'Accesorios',desc:'Empaques reutilizables para sorprender.',image:photos.accesorios,pos:'0% 91%',tag:'Detalle especial'},
+    {id:'llaveros',name:'Llaveros acrílicos',category:'accesorios',categoryLabel:'Accesorios',desc:'Llaveros con diseños, nombres o marca.',image:'/assets/ornamentos-acrilicos.webp',pos:'center',tag:'Personalizable'},
+    {id:'latas',name:'Latas para regalos',category:'accesorios',categoryLabel:'Accesorios',desc:'Empaques reutilizables para sorprender.',image:'/assets/lata-grinch.webp',pos:'center',tag:'Detalle especial'},
     {id:'bolsos-drill',name:'Bolsos en drill',category:'accesorios',categoryLabel:'Accesorios',desc:'Bolsos de regalo con diseños personalizados.',image:photos.accesorios,pos:'100% 91%',tag:'Con tu marca'},
-    {id:'vasos-bambu',name:'Vasos con tapa de bambú',category:'navidad',categoryLabel:'Colección navideña',desc:'Una opción moderna y reutilizable.',image:photos.navidad,pos:'0% 36%',tag:'Destacado'},
+    {id:'vasos-bambu',name:'Vasos con tapa de bambú',category:'navidad',categoryLabel:'Colección navideña',desc:'Una opción moderna y reutilizable.',image:'/assets/vaso-cascanueces.webp',pos:'center',tag:'Destacado'},
     {id:'tazas-espejo',name:'Tazas tipo espejo',category:'navidad',categoryLabel:'Colección navideña',desc:'Acabado brillante para regalos llamativos.',image:photos.navidad,pos:'100% 36%',tag:'Elegante'},
     {id:'franelas',name:'Franelas navideñas',category:'navidad',categoryLabel:'Colección navideña',desc:'Diseños festivos para lucir en familia o en equipo.',image:photos.navidad,pos:'0% 91%',tag:'Temporada'},
     {id:'sueteres',name:'Suéteres de Navidad',category:'navidad',categoryLabel:'Colección navideña',desc:'Un clásico de la temporada con personalidad.',image:photos.navidad,pos:'100% 91%',tag:'Temporada'}
@@ -48,7 +48,7 @@
   function label(p) {return p.categoryLabel;}
   function quoteUrl(message) {return 'https://wa.me/'+PHONE+'?text='+encodeURIComponent(message);}
   function productMessage(p) {return 'Hola Eclipse, quiero consultar el precio y disponibilidad de: '+p.name+'.\n¿Podrían indicarme las opciones de personalización?';}
-  function mediaStyle(p) {return '--img:url("'+p.image+'");--pos:'+p.pos;}
+  function mediaStyle(p) {return '--img:url("'+p.image+'");--pos:'+p.pos+';--size:'+(Object.values(photos).includes(p.image)?'210% auto':'cover');}
   function render() {
     const q=searchValue.trim().toLocaleLowerCase('es');
     const visible=products.filter(p=>(activeCategory==='todos'||p.category===activeCategory)&&(p.name+' '+p.desc+' '+p.categoryLabel).toLocaleLowerCase('es').includes(q));

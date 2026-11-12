@@ -1,27 +1,17 @@
 # Eclipse · Catálogo Navideño 2026
 
-Micrositio responsive tipo e-commerce para **Eclipse**. Sin precios publicados: cada ficha muestra **«Consultar precio»**.
+Catálogo web de **Eclipse** con diseño tipo e-commerce, sin precios públicos. Todas las fichas muestran **«Consultar precio»** y permiten solicitar información vía WhatsApp al **0424-2573387**.
 
-## Funcionalidades
+## Contenido y funciones
+- 21 productos y cinco filtros por colección, buscador, favoritos.
+- Tarjetas individuales de producto, vista detallada, lista de cotización con cantidades y observaciones.
+- Enlace directo a WhatsApp con lista de productos; no hay pasarela ni cobros.
+- Fotografías reales suministradas por Eclipse de mugs, vasos, bolígrafos, latas y ornamentos. Otros artículos usan fotografías ilustrativas de colección hasta tener imagen individual.
+- Logo navideño refrescado: `assets/eclipse-logo-navidad.webp` y versión SVG `assets/eclipse-navidad.svg`.
+- Instagram: https://www.instagram.com/somoseclipse.ve/
 
-- 21 productos agrupados en destacados, corporativos, adornos, accesorios y colección navideña.
-- Buscador, filtros, favoritos y lista de cotización con cantidades.
-- Botones de WhatsApp enlazados al teléfono **+58 424-2573387**.
-- Mensaje de cotización con productos, cantidades y observaciones.
-- Instagram: [@somoseclipse.ve](https://www.instagram.com/somoseclipse.ve/).
-- Logotipo Eclipse redibujado en una versión navideña en `assets/eclipse-navidad.svg`.
-- Diseño en tonos crema, borgoña, rojo y dorado, sin pasarela de pago.
+## Publicación
+HTML, CSS y JavaScript estáticos, sin instalación ni build: importar `waldjos/Cat-logo-navidad-` en Vercel, directorio raíz, framework **Other**. Una actualización de GitHub despliega automáticamente solo si está conectada la integración de GitHub con Vercel.
 
-## Fotografías
-
-El sitio funciona con recortes visuales de las páginas existentes `assets/*.webp` como ilustraciones referenciales mientras se incorporan fotografías originales de cada referencia. El logotipo SVG es una versión estilizada del original. Las fotografías que compartió la clienta pueden reemplazar estas ilustraciones sin cambiar la estructura.
-
-## Despliegue
-
-El sitio es estático: `index.html`, `styles.css`, `app.js`, `assets/`. No requiere instalación de dependencias ni compilación.
-
-Importa `waldjos/Cat-logo-navidad-` desde **Vercel → Add New → Project**. Configuración: Framework Other, directorio raíz. En la conexión automatizada disponible, crear proyectos nuevos ha generado HTTP 403; la actualización en GitHub no confirma por sí sola un despliegue de Vercel.
-
-## Notas de operación
-
-El botón «Agregar a mi lista» no ejecuta compras. La lista es temporal y permanece en el navegador; se comunica por WhatsApp a Eclipse para confirmar precios y disponibilidad. No se incluyen importes ni promesas de inventario.
+## Uso comercial
+Los precios, personalización y disponibilidad deben confirmarse con Eclipse antes de prometerlos. La lista de consulta no procesa pagos. Este sitio no necesita credenciales ni backend.
