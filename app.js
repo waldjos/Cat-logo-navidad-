@@ -20,7 +20,7 @@
   function label(p) {return p.categoryLabel;}
   function quoteUrl(message) {return 'https://wa.me/'+PHONE+'?text='+encodeURIComponent(message);}
   function productMessage(p) {return 'Hola Eclipse, deseo consultar el precio y personalización de '+p.name+'.\n📷 Foto y detalles: '+new URL(links.product(p.id),location.origin).href+'\n¿Me indican disponibilidad y opciones?';}
-  function mediaStyle(p) {return '--img:url("'+p.image+'");--pos:'+p.pos+';--size:'+(p.imageType==='referencial'?'210% auto':'cover');}
+  function mediaStyle(p) {return '--img:url('+p.image+');--pos:'+p.pos+';--size:'+(p.imageType==='referencial'?'210% auto':'cover');}
   function render() {
     const q=searchValue.trim().toLocaleLowerCase('es');
     const visible=products.filter(p=>(activeCategory==='todos'||p.category===activeCategory)&&(p.name+' '+p.desc+' '+p.categoryLabel).toLocaleLowerCase('es').includes(q));
