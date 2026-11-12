@@ -91,3 +91,8 @@
  .custom-eclipse .custom-new-button {font-size:14px;gap:8px;padding:10px}
 }
 @media (prefers-reduced-motion:reduce){.custom-eclipse .custom-new-button{transition:none}}
+
+/* Imagen oficial de la sección de personalización · Eclipse 2026 */
+.custom-eclipse .custom-present{width:min(660px,100%);margin:22px auto 19px;line-height:0;}
+.custom-eclipse .custom-present img{display:block;width:100%;height:auto;aspect-ratio:660 / 316;object-fit:contain;}
+@media(max-width:760px){.custom-eclipse .custom-present{width:min(100%,660px);margin:18px auto 17px;}.custom-eclipse .custom-eclipse-content{padding-top:50px;}.custom-eclipse .custom-new-steps{margin-top:9px;}}
