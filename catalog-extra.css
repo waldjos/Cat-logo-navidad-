@@ -154,3 +154,9 @@
  .category-tile img{min-height:145px;aspect-ratio:1.25}
  .category-tile span{min-height:51px;padding:10px;font-size:11px}
 }
+
+/* Navegación directa desde las tarjetas de colección */
+#catalogo{scroll-margin-top:18px}
+.category-tile{cursor:pointer;touch-action:manipulation}
+.category-tile:focus-visible{outline:3px solid #9a1830;outline-offset:4px}
+@media(prefers-reduced-motion:reduce){#catalogo{scroll-behavior:auto}}
