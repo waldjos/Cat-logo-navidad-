@@ -50,7 +50,19 @@
   function closeDetail(){const d=$('#productDialog');if(d.close)d.close();else d.removeAttribute('open');}
   function selectCategory(cat){activeCategory=cat;$('.cat').forEach(b=>b.classList.toggle('active',b.dataset.cat===cat));render();}
   $('.cat').forEach(btn=>btn.addEventListener('click',()=>selectCategory(btn.dataset.cat)));
-  $('.category-tile').forEach(tile=>tile.addEventListener('click',()=>selectCategory(tile.dataset.selectCat)));
+  // Las tarjetas de colección deben filtrar y llevar al usuario directamente a los productos.
+  $('.category-tile[data-select-cat]').forEach(tile=>tile.addEventListener('click',e=>{
+    e.preventDefault();
+    const category=tile.dataset.selectCat;
+    selectCategory(category);
+    const catalog=$('#catalogo');
+    if(catalog){
+      history.replaceState(null,'','#catalogo');
+      catalog.scrollIntoView({behavior:'smooth',block:'start'});
+      catalog.setAttribute('tabindex','-1');
+      window.setTimeout(()=>catalog.focus({preventScroll:true}),450);
+    }
+  }));
   $('#searchInput').addEventListener('input',e=>{searchValue=e.target.value;render();});
   $('#searchToggle').addEventListener('click',()=>{document.location.hash='catalogo';$('#searchInput').focus();});
   $('#menuToggle').addEventListener('click',()=>{const nav=$('#navLinks');const opened=nav.classList.toggle('open');$('#menuToggle').setAttribute('aria-expanded',String(opened));});
