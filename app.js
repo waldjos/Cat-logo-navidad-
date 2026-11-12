@@ -48,21 +48,33 @@
   function detail(id){const p=dataById[id];if(!p)return;$('#productDetails').innerHTML='<div class="detail-inner"><div class="detail-art" style="'+mediaStyle(p)+'"></div><div class="detail-copy"><small>'+sanitize(p.categoryLabel).toUpperCase()+'</small><h2>'+sanitize(p.name)+'</h2><p>'+sanitize(p.desc)+'</p><p>Selecciona la cantidad y cuéntanos qué nombre, imagen o logo te gustaría agregar. Opciones sujetas a confirmación.</p><span class="price-label">Consultar precio</span><a class="btn btn-red" href="'+quoteUrl(productMessage(p))+'" target="_blank" rel="noopener noreferrer">Consultar por WhatsApp ↗</a><button type="button" class="btn btn-outline" style="width:100%;margin-top:9px" data-detail-add="'+p.id+'">+ Agregar a mi lista</button></div></div>';
     const dialog=$('#productDialog');if(dialog.showModal)dialog.showModal();else dialog.setAttribute('open','');}
   function closeDetail(){const d=$('#productDialog');if(d.close)d.close();else d.removeAttribute('open');}
-  function selectCategory(cat){activeCategory=cat;$('.cat').forEach(b=>b.classList.toggle('active',b.dataset.cat===cat));render();}
-  $('.cat').forEach(btn=>btn.addEventListener('click',()=>selectCategory(btn.dataset.cat)));
-  // Las tarjetas de colección deben filtrar y llevar al usuario directamente a los productos.
-  $('.category-tile[data-select-cat]').forEach(tile=>tile.addEventListener('click',e=>{
-    e.preventDefault();
-    const category=tile.dataset.selectCat;
-    selectCategory(category);
-    const catalog=$('#catalogo');
-    if(catalog){
-      history.replaceState(null,'','#catalogo');
-      catalog.scrollIntoView({behavior:'smooth',block:'start'});
-      catalog.setAttribute('tabindex','-1');
-      window.setTimeout(()=>catalog.focus({preventScroll:true}),450);
+  function selectCategory(cat){
+    const allowed=new Set(['todos','destacados','tazas','vasos','textiles','empaques','adornos','corporativos','accesorios']);
+    activeCategory=allowed.has(cat)?cat:'todos';
+    $('.cat').forEach(b=>{
+      const active=b.dataset.cat===activeCategory;
+      b.classList.toggle('active',active);
+      b.setAttribute('aria-pressed',String(active));
+    });
+    render();
+  }
+  // Delegación: funciona aunque las tarjetas se reconstruyan o el navegador móvil
+  // gestione el toque sobre la imagen/texto interno de cada colección.
+  document.addEventListener('click',e=>{
+    const tile=e.target.closest('.category-tile[data-select-cat]');
+    if(tile){
+      e.preventDefault();
+      selectCategory(tile.dataset.selectCat);
+      const catalog=$('#catalogo');
+      if(catalog){
+        if(location.hash!=='#catalogo') history.replaceState(null,'','#catalogo');
+        catalog.scrollIntoView({behavior:'smooth',block:'start'});
+      }
+      return;
     }
-  }));
+    const chip=e.target.closest('.cat[data-cat]');
+    if(chip){e.preventDefault();selectCategory(chip.dataset.cat);}
+  });
   $('#searchInput').addEventListener('input',e=>{searchValue=e.target.value;render();});
   $('#searchToggle').addEventListener('click',()=>{document.location.hash='catalogo';$('#searchInput').focus();});
   $('#menuToggle').addEventListener('click',()=>{const nav=$('#navLinks');const opened=nav.classList.toggle('open');$('#menuToggle').setAttribute('aria-expanded',String(opened));});
