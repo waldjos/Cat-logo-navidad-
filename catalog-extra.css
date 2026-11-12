@@ -5,3 +5,5 @@
 .gallery-switch{position:absolute;top:13px;right:13px;display:flex;gap:5px;z-index:5;background:#fff8f0eb;padding:5px;border:1px solid #edd8c7;border-radius:50px;box-shadow:0 7px 25px #673d281c}
 .gallery-switch button{min-height:35px;padding:9px 12px;background:transparent;color:#8e333d;border:0;border-radius:50px;font-size:11px;font-weight:800}
 .gallery-switch button.active{background:#961629;color:white}
+
+.photo-chooser{position:absolute;top:14px;left:14px;display:flex;gap:6px;flex-wrap:wrap;z-index:5}.photo-chooser button{border:1px solid #ead3c3;background:#fffaf5ee;color:#7b2835;padding:9px 12px;font-size:11px;font-weight:800;border-radius:100px;box-shadow:0 6px 19px #57282026;cursor:pointer}.photo-chooser button[aria-pressed="true"]{background:#991c29;color:#fff;border-color:#991c29}@media(max-width:450px){.photo-chooser button{padding:7px 9px;font-size:10px}}
