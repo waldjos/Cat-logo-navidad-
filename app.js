@@ -23,7 +23,7 @@
   function mediaStyle(p) {return '--img:url('+p.image+');--pos:'+p.pos+';--size:'+(p.imageType==='referencial'?'210% auto':'cover');}
   function render() {
     const q=searchValue.trim().toLocaleLowerCase('es');
-    const visible=products.filter(p=>(activeCategory==='todos'||p.category===activeCategory)&&(p.name+' '+p.desc+' '+p.categoryLabel).toLocaleLowerCase('es').includes(q));
+    const visible=products.filter(p=>(activeCategory==='todos'||(activeCategory==='destacados'?p.featured===true:p.category===activeCategory))&&(p.name+' '+p.desc+' '+p.categoryLabel).toLocaleLowerCase('es').includes(q));
     $('#emptyState').hidden=visible.length!==0;
     grid.innerHTML=visible.map(p=>{
       const fav=favorites.includes(p.id);
@@ -48,7 +48,9 @@
   function detail(id){const p=dataById[id];if(!p)return;$('#productDetails').innerHTML='<div class="detail-inner"><div class="detail-art" style="'+mediaStyle(p)+'"></div><div class="detail-copy"><small>'+sanitize(p.categoryLabel).toUpperCase()+'</small><h2>'+sanitize(p.name)+'</h2><p>'+sanitize(p.desc)+'</p><p>Selecciona la cantidad y cuéntanos qué nombre, imagen o logo te gustaría agregar. Opciones sujetas a confirmación.</p><span class="price-label">Consultar precio</span><a class="btn btn-red" href="'+quoteUrl(productMessage(p))+'" target="_blank" rel="noopener noreferrer">Consultar por WhatsApp ↗</a><button type="button" class="btn btn-outline" style="width:100%;margin-top:9px" data-detail-add="'+p.id+'">+ Agregar a mi lista</button></div></div>';
     const dialog=$('#productDialog');if(dialog.showModal)dialog.showModal();else dialog.setAttribute('open','');}
   function closeDetail(){const d=$('#productDialog');if(d.close)d.close();else d.removeAttribute('open');}
-  $$('.cat').forEach(btn=>btn.addEventListener('click',()=>{activeCategory=btn.dataset.cat;$$('.cat').forEach(b=>b.classList.toggle('active',b===btn));render();}));
+  function selectCategory(cat){activeCategory=cat;$('.cat').forEach(b=>b.classList.toggle('active',b.dataset.cat===cat));render();}
+  $('.cat').forEach(btn=>btn.addEventListener('click',()=>selectCategory(btn.dataset.cat)));
+  $('.category-tile').forEach(tile=>tile.addEventListener('click',()=>selectCategory(tile.dataset.selectCat)));
   $('#searchInput').addEventListener('input',e=>{searchValue=e.target.value;render();});
   $('#searchToggle').addEventListener('click',()=>{document.location.hash='catalogo';$('#searchInput').focus();});
   $('#menuToggle').addEventListener('click',()=>{const nav=$('#navLinks');const opened=nav.classList.toggle('open');$('#menuToggle').setAttribute('aria-expanded',String(opened));});

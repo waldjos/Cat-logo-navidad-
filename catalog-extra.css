@@ -7,3 +7,14 @@
 .gallery-switch button.active{background:#961629;color:white}
 
 .photo-chooser{position:absolute;top:14px;left:14px;display:flex;gap:6px;flex-wrap:wrap;z-index:5}.photo-chooser button{border:1px solid #ead3c3;background:#fffaf5ee;color:#7b2835;padding:9px 12px;font-size:11px;font-weight:800;border-radius:100px;box-shadow:0 6px 19px #57282026;cursor:pointer}.photo-chooser button[aria-pressed="true"]{background:#991c29;color:#fff;border-color:#991c29}@media(max-width:450px){.photo-chooser button{padding:7px 9px;font-size:10px}}
+
+/* Colecciones visuales y video de proceso · Eclipse 2026 */
+.category-showcase{padding:68px 0 16px}.category-showcase .section-top{margin-bottom:22px}.category-showcase .section-top h2{font-size:clamp(34px,4vw,52px)}
+.category-tiles{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:13px}
+.category-tile{background:#fff;border:1px solid #eddbcf;border-radius:17px;overflow:hidden;box-shadow:0 10px 22px #75342313;transition:transform .2s,box-shadow .2s}
+.category-tile:hover{transform:translateY(-4px);box-shadow:0 20px 30px #75342322}.category-tile img{width:100%;aspect-ratio:1;object-fit:cover;background:#f6e7dc}
+.category-tile span{min-height:57px;display:flex;align-items:center;justify-content:space-between;gap:3px;background:#920f22;color:white;font-size:12px;font-weight:800;padding:10px 12px}.category-tile span b{font-size:18px}
+.catalog-section{padding-top:42px}.video-showcase{background:radial-gradient(circle at 6% 68%,#fff7ec,#f8e5d6);padding:60px 0;border-top:1px solid #efddce;border-bottom:1px solid #efddce}
+.video-inner{display:grid;grid-template-columns:1fr .72fr;align-items:center;gap:58px}.video-copy h2{font:500 clamp(36px,4.4vw,60px)/1.16 'Playfair Display',Georgia,serif;margin:15px 0}.video-copy h2 em{color:#9e1528}.video-copy p{color:#765951;line-height:1.7;max-width:530px}.video-note{font-size:12px}.video-copy .btn{margin-top:15px}
+.video-frame{position:relative;max-width:360px;margin:auto;border-radius:28px;background:#221a1a;overflow:hidden;border:9px solid #fff;box-shadow:0 22px 60px #522a1b40;aspect-ratio:9/16}.video-frame video{width:100%;height:100%;display:block;object-fit:cover;background:#000}.video-stamp{position:absolute;left:12px;top:12px;background:#fffbf5dc;color:#822033;border-radius:30px;padding:7px 12px;font-size:11px;font-weight:800;pointer-events:none}
+@media(max-width:1100px){.category-tiles{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:760px){.category-showcase{padding:42px 0 12px}.category-tiles{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.category-tile{border-radius:12px}.category-tile span{padding:8px;font-size:10px;min-height:50px}.video-showcase{padding:44px 0}.video-inner{grid-template-columns:1fr;gap:24px}.video-copy h2{font-size:40px}.video-frame{max-width:310px}}@media(max-width:430px){.category-tile span{font-size:9px}.category-tiles{gap:7px}}

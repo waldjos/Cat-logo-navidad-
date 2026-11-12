@@ -23,3 +23,10 @@ Proyecto estático HTML/CSS/JS en la rama `main`, repositorio `waldjos/Cat-logo-
 
 La URL del resumen puede verla cualquier persona que la reciba, por lo que no debe incluir datos sensibles. No se almacenan pedidos en servidores; la selección está en el navegador y se transfiere mediante enlace y texto a WhatsApp. Confirmar precios, inventario, acabados y tiempos de producción directamente con Eclipse. Las fotografías reales provienen de las imágenes aportadas por el cliente; otras son ilustraciones referenciales.
 
+
+
+## Ampliación de catálogo — noviembre 2026
+
+Colecciones visuales: Tazas y mugs, Vasos y termos, Ropa navideña, Empaques y regalos, Adornos, Corporativos y Accesorios. Los destacados funcionan como filtro independiente. Nuevas tazas, franelas infantiles, franelas con lazos, bolsos tipo tula; actualizadas franelas Grinch, hoodie blanco y saquitos rojos. Cada producto con imagen editorial y fotografía original alternables cuando están disponibles.
+
+El video de personalización con estampados de cascanueces se presenta en la sección «Así creamos tus detalles» mediante un reproductor HTML5 nativo. Formato H.264 MP4 comprimido y portada WebP.
