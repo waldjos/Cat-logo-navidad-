@@ -4,7 +4,7 @@ Tienda visual para solicitar cotizaciones por WhatsApp, sin precios numéricos n
 
 ## Funciones
 
-- **23 referencias** en categorías; 10 con fotografías reales y las demás con imágenes ilustrativas identificadas.
+- **27 referencias** en categorías, con fotografías reales e imágenes ilustrativas identificadas.
 - Fichas compartibles en `/producto/<id>/`, cada una con título, imagen, descripción, cantidad, nota y consulta por WhatsApp.
 - Mi lista: el comprador selecciona productos, cambia cantidades e indica personalización.
 - Resumen visual en `/consulta/?p=<id>:<cantidad>,...` con fotografías que se abren en cualquier dispositivo. Las notas opcionales se incluyen en el parámetro `n`.
@@ -30,3 +30,9 @@ La URL del resumen puede verla cualquier persona que la reciba, por lo que no de
 Colecciones visuales: Tazas y mugs, Vasos y termos, Ropa navideña, Empaques y regalos, Adornos, Corporativos y Accesorios. Los destacados funcionan como filtro independiente. Nuevas tazas, franelas infantiles, franelas con lazos, bolsos tipo tula; actualizadas franelas Grinch, hoodie blanco y saquitos rojos. Cada producto con imagen editorial y fotografía original alternables cuando están disponibles.
 
 El video de personalización con estampados de cascanueces se presenta en la sección «Así creamos tus detalles» mediante un reproductor HTML5 nativo. Formato H.264 MP4 comprimido y portada WebP.
+
+## Publicación sin Firebase — 15 de noviembre de 2026
+
+El catálogo no carga Firebase, no solicita cuentas y no escribe en servicios remotos. `/admin/` muestra un aviso sin formularios ni SDK. Los archivos de reglas y configuración vacía se conservan como referencia; no se modificó ningún servicio remoto ni se relajaron reglas de acceso. Para actualizar productos, editar `catalog-data.js`, las fichas estáticas correspondientes y las imágenes, y publicar por GitHub/Vercel.
+
+Se retiraron las referencias de vaso térmico, mate y vaso vinero; se corrigieron las fotografías de bolígrafos, vasos con tapa de bambú y banderines, y se añadió la taza con base de corcho y se corrigió la ficha de la taza de vidrio glaseado Grinch.

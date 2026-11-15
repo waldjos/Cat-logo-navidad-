@@ -2,40 +2,14 @@
 window.ECLIPSE_PRODUCTS = [
   {
     "id": "mug-navideno",
-    "name": "Mug navideño personalizado",
+    "name": "Taza de vidrio glaseado Grinch",
     "category": "tazas",
     "categoryLabel": "Tazas y mugs",
-    "desc": "Una taza con nombre, mensaje o diseño de temporada.",
-    "image": "/assets/editorial/mug-grinch-editorial.webp",
+    "desc": "Taza de vidrio glaseado con diseño navideño del Grinch. Consulta opciones de personalización.",
+    "image": "/assets/mug-grinch.webp",
     "pos": "center",
-    "tag": "Idea de regalo",
-    "imageType": "editorial",
-    "originalImage": "/assets/mug-grinch.webp",
-    "featured": true
-  },
-  {
-    "id": "termo-navideno",
-    "name": "Vaso térmico navideño",
-    "category": "vasos",
-    "categoryLabel": "Vasos y termos",
-    "desc": "Personaliza tu vaso con detalles para celebrar la temporada.",
-    "image": "/assets/editorial/termo-navideno-editorial.webp",
-    "pos": "center",
-    "tag": "Personalizable",
-    "imageType": "editorial",
-    "originalImage": "/assets/vaso-luces.webp",
-    "featured": true
-  },
-  {
-    "id": "mate-navideno",
-    "name": "Mate navideño personalizado",
-    "category": "vasos",
-    "categoryLabel": "Vasos y termos",
-    "desc": "Mate personalizado con un diseño navideño. Imagen ambientada de referencia; consulta modelos y acabados disponibles.",
-    "image": "/assets/editorial/vaso-bambu-editorial.webp",
-    "pos": "center",
-    "tag": "Navidad Eclipse",
-    "imageType": "editorial",
+    "tag": "Foto real",
+    "imageType": "real",
     "featured": true
   },
   {
@@ -82,11 +56,10 @@ window.ECLIPSE_PRODUCTS = [
     "category": "corporativos",
     "categoryLabel": "Corporativos",
     "desc": "Un detalle práctico para regalar con tu identidad.",
-    "image": "/assets/editorial/boligrafos-editorial.webp",
+    "image": "/assets/boligrafos.webp",
     "pos": "center",
-    "tag": "Corporativo",
-    "imageType": "editorial",
-    "originalImage": "/assets/boligrafos.webp",
+    "tag": "Foto real",
+    "imageType": "real",
     "featured": true
   },
   {
@@ -111,18 +84,6 @@ window.ECLIPSE_PRODUCTS = [
     "pos": "center",
     "tag": "Foto real",
     "imageType": "real",
-    "featured": false
-  },
-  {
-    "id": "vaso-vinero",
-    "name": "Vaso vinero",
-    "category": "vasos",
-    "categoryLabel": "Vasos y termos",
-    "desc": "Un regalo con estilo para ocasiones especiales.",
-    "image": "/assets/corporativos.webp",
-    "pos": "0% 66%",
-    "tag": "Para regalar",
-    "imageType": "referencial",
     "featured": false
   },
   {
@@ -215,14 +176,14 @@ window.ECLIPSE_PRODUCTS = [
   },
   {
     "id": "banderines",
-    "name": "Banderines decorativos",
+    "name": "Banderines de cascanueces",
     "category": "adornos",
     "categoryLabel": "Adornos",
-    "desc": "Guirnaldas festivas para decorar tus espacios.",
-    "image": "/assets/adornos.webp",
-    "pos": "50% 100%",
-    "tag": "Decoración",
-    "imageType": "referencial",
+    "desc": "Banderines decorativos con diseño de cascanueces. Consulta medidas y opciones de personalización.",
+    "image": "/assets/new/banderines.jpeg",
+    "pos": "center",
+    "tag": "Foto real",
+    "imageType": "real",
     "featured": false
   },
   {
@@ -279,11 +240,10 @@ window.ECLIPSE_PRODUCTS = [
     "category": "vasos",
     "categoryLabel": "Vasos y termos",
     "desc": "Una opción moderna y reutilizable.",
-    "image": "/assets/editorial/vaso-termico-editorial.webp",
+    "image": "/assets/vaso-cascanueces.webp",
     "pos": "center",
-    "tag": "Destacado",
-    "imageType": "editorial",
-    "originalImage": "/assets/vaso-cascanueces.webp",
+    "tag": "Foto real",
+    "imageType": "real",
     "featured": true
   },
   {
@@ -329,8 +289,6 @@ window.ECLIPSE_PRODUCTS = [
     "name": "Franelas infantiles navideñas",
     "category": "textiles",
     "categoryLabel": "Ropa navideña",
-    "category": "textiles",
-    "categoryLabel": "Ropa navideña",
     "desc": "Opciones para niños y niñas con ilustraciones navideñas; consulta colores, tallas y modelos.",
     "image": "/assets/new/franelas-infantiles-ambientado.webp",
     "originalImage": "/assets/new/franelas-infantiles-original.webp",
@@ -342,8 +300,6 @@ window.ECLIPSE_PRODUCTS = [
   {
     "id": "franelas-lazos-negros",
     "name": "Franelas negras con lazos navideños",
-    "category": "textiles",
-    "categoryLabel": "Ropa navideña",
     "category": "textiles",
     "categoryLabel": "Ropa navideña",
     "desc": "Franelas negras con motivos decorativos de lazos navideños para regalar o combinar.",
@@ -359,14 +315,24 @@ window.ECLIPSE_PRODUCTS = [
     "name": "Bolsos tipo tula navideños",
     "category": "empaques",
     "categoryLabel": "Empaques y regalos",
-    "category": "empaques",
-    "categoryLabel": "Empaques y regalos",
     "desc": "Bolsos de cordón con estampados de Santa, pingüino y cascanueces. Ideales para obsequios.",
     "image": "/assets/new/bolsos-tula-ambientado.webp",
     "originalImage": "/assets/new/bolsos-tula-original.webp",
     "imageType": "editorial",
     "pos": "center",
     "tag": "Nuevo · Personalizable",
+    "featured": true
+  },
+  {
+    "id": "taza-corcho",
+    "name": "Taza con base de corcho",
+    "desc": "Taza navideña con base de corcho. Consulta diseños y opciones de personalización.",
+    "image": "/assets/new/taza-corcho.jpeg",
+    "category": "tazas",
+    "categoryLabel": "Tazas y mugs",
+    "imageType": "real",
+    "pos": "center",
+    "tag": "Nuevo",
     "featured": true
   }
 ];

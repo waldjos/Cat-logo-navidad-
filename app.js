@@ -8,7 +8,13 @@
   let dataById = Object.fromEntries(products.map(product=>[product.id,product]));
   function safeStorageGet(key,fallback) { try { const v=JSON.parse(localStorage.getItem(key)); return v===null?fallback:v; } catch(e) {return fallback;} }
   function save(key,obj) { try { localStorage.setItem(key,JSON.stringify(obj)); } catch(e) {} }
-  const cart = safeStorageGet('eclipse_navidad_2026_lista', {});
+  let cart = safeStorageGet('eclipse_navidad_2026_lista', {});
+  if (!cart || typeof cart !== 'object' || Array.isArray(cart)) cart = {};
+  for (const id of Object.keys(cart)) {
+    const qty = Number(cart[id]);
+    if (!dataById[id] || !Number.isFinite(qty) || qty < 1) delete cart[id];
+    else cart[id] = Math.min(99, Math.floor(qty));
+  }
   let favorites = safeStorageGet('eclipse_navidad_2026_favoritos',[]);
   if (!Array.isArray(favorites)) favorites=[];
   let activeCategory = 'todos';
@@ -22,8 +28,9 @@
   function productMessage(p) {return 'Hola Eclipse, deseo consultar el precio y personalización de '+p.name+'.\n📷 Foto y detalles: '+new URL(links.product(p.id),location.origin).href+'\n¿Me indican disponibilidad y opciones?';}
   function mediaStyle(p) {return '--img:url('+p.image+');--pos:'+p.pos+';--size:'+(p.imageType==='referencial'?'210% auto':'cover');}
   function render() {
-    const q=searchValue.trim().toLocaleLowerCase('es');
-    const visible=products.filter(p=>(activeCategory==='todos'||(activeCategory==='destacados'?p.featured===true:p.category===activeCategory))&&(p.name+' '+p.desc+' '+p.categoryLabel).toLocaleLowerCase('es').includes(q));
+    const normalize=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('es');
+    const q=normalize(searchValue.trim());
+    const visible=products.filter(p=>(activeCategory==='todos'||(activeCategory==='destacados'?p.featured===true:p.category===activeCategory))&&normalize(p.name+' '+p.desc+' '+p.categoryLabel).includes(q));
     $('#emptyState').hidden=visible.length!==0;
     grid.innerHTML=visible.map(p=>{
       const fav=favorites.includes(p.id);
@@ -64,6 +71,8 @@
     const tile=e.target.closest('.category-tile[data-select-cat]');
     if(tile){
       e.preventDefault();
+      searchValue='';
+      $('#searchInput').value='';
       selectCategory(tile.dataset.selectCat);
       const catalog=$('#catalogo');
       if(catalog){
@@ -95,23 +104,6 @@
     window.prompt('Copia el enlace del catálogo:',url);}
   $('#shareSite').addEventListener('click',shareSite);
   $('#floatingWhatsApp').addEventListener('click',()=>window.open(quoteUrl('Hola Eclipse, quisiera hacer una consulta sobre el Catálogo Navideño 2026.'),'_blank','noopener'));
-  window.addEventListener('eclipse:catalog-updated',event=>{
-    const next=event.detail && event.detail.products;
-    if(!Array.isArray(next))return;
-    products=next.filter(p=>p && p.id && p.name && p.image && p.published!==false);
-    dataById=Object.fromEntries(products.map(p=>[p.id,p]));
-    count.textContent=String(products.length);
-    const cats=event.detail.categories||[];
-    if(cats.length){
-      const categoryBar=$('#categorias');
-      const defaults='<button class="cat" data-cat="todos">Todos</button><button class="cat" data-cat="destacados">★ Destacados</button>';
-      const extra=cats.map(c=>'<button class="cat" data-cat="'+sanitize(c.id)+'">'+sanitize(c.name)+'</button>').join('');
-      categoryBar.innerHTML=defaults+extra;
-    }
-    if(activeCategory!=='todos'&&activeCategory!=='destacados'&&!products.some(p=>p.category===activeCategory))activeCategory='todos';
-    $$('.cat').forEach(b=>b.classList.toggle('active',b.dataset.cat===activeCategory));
-    render();updateCount();renderCart();
-  });
-  render();updateCount();renderCart();
+  selectCategory('todos');updateCount();renderCart();
   if(new URLSearchParams(location.search).get('lista')==='1') openCart();
 })();
