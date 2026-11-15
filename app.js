@@ -104,6 +104,25 @@
     window.prompt('Copia el enlace del catálogo:',url);}
   $('#shareSite').addEventListener('click',shareSite);
   $('#floatingWhatsApp').addEventListener('click',()=>window.open(quoteUrl('Hola Eclipse, quisiera hacer una consulta sobre el Catálogo Navideño 2026.'),'_blank','noopener'));
+  // En teléfonos, ocultar el botón flotante mientras el escaparate esté visible:
+  // los botones de cada producto ya ofrecen la consulta sin tapar fotografías.
+  if (typeof IntersectionObserver !== 'undefined' && typeof window.matchMedia === 'function') {
+    const whatsapp = $('#floatingWhatsApp');
+    const phoneView = window.matchMedia('(max-width: 760px)');
+    let catalogInView = false;
+    function syncWhatsApp() {
+      const hide = phoneView.matches && catalogInView;
+      whatsapp.classList.toggle('floating-wa--catalog-visible', hide);
+      whatsapp.setAttribute('aria-hidden', String(hide));
+      whatsapp.tabIndex = hide ? -1 : 0;
+    }
+    const observer = new IntersectionObserver(entries => {
+      catalogInView = entries[0]?.isIntersecting || false;
+      syncWhatsApp();
+    }, { threshold: 0 });
+    observer.observe(grid);
+    if (phoneView.addEventListener) phoneView.addEventListener('change', syncWhatsApp);
+  }
   selectCategory('todos');updateCount();renderCart();
   if(new URLSearchParams(location.search).get('lista')==='1') openCart();
 })();
