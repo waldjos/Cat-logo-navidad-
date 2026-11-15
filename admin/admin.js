@@ -116,3 +116,23 @@ $('categoriesList').addEventListener('click',async e=>{
  if(del){const id=del.dataset.deleteCategory;if(products.some(p=>p.category===id))return alert('Mueve primero los productos de esta categoría.');if(!confirm('¿Eliminar esta categoría?'))return;try{await deleteDoc(doc(db,'eclipseCategories',id));}catch(err){status(err.message);}}
 });
 renderCategoryOptions();renderCategories();
+
+$('importProducts').addEventListener('click',async()=>{
+ if(products.length)return alert('Ya existen productos en Firebase. La importación inicial solo está disponible cuando está vacío.');
+ const source=window.ECLIPSE_PRODUCTS||[];
+ if(!source.length)return alert('No se encontró el catálogo original.');
+ if(!confirm('¿Importar los '+source.length+' productos actuales y sus categorías a Firebase?'))return;
+ const btn=$('importProducts');btn.disabled=true;
+ try{
+  for(let i=0;i<initialCategories.length;i++){
+   const [id,name]=initialCategories[i];
+   await setDoc(doc(db,'eclipseCategories',id),{name,order:i});
+  }
+  for(const p of source){
+   const {id,...data}=p;
+   await setDoc(doc(db,'eclipseProducts',id),{...data,published:true});
+  }
+  status('Importación completada: '+source.length+' productos.');
+ }catch(err){status('Importación incompleta: '+err.message+'. Revisa antes de volver a intentar.');}
+ finally{btn.disabled=false;}
+});
