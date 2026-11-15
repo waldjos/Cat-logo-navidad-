@@ -127,12 +127,11 @@ window.ECLIPSE_PRODUCTS = [
     "name": "Bambalinas con logo",
     "category": "adornos",
     "categoryLabel": "Adornos",
-    "desc": "Lleva la imagen de tu empresa al árbol de Navidad.",
-    "image": "/assets/editorial/ornamento-acrilico-editorial.webp",
+    "desc": "Bambalinas personalizables con el logotipo de tu empresa. Imagen ilustrativa; consulta opciones y acabados disponibles.",
+    "image": "/assets/products/bambalina-corporativa.svg",
     "pos": "center",
-    "tag": "Navideño",
-    "imageType": "editorial",
-    "originalImage": "/assets/ornamentos-acrilicos.webp",
+    "tag": "Con tu logo",
+    "imageType": "referencial",
     "featured": true
   },
   {
@@ -141,11 +140,10 @@ window.ECLIPSE_PRODUCTS = [
     "category": "adornos",
     "categoryLabel": "Adornos",
     "desc": "Figuras planas en acrílico para nombres o marcas.",
-    "image": "/assets/editorial/ornamento-acrilico-editorial.webp",
+    "image": "/assets/ornamentos-acrilicos.webp",
     "pos": "center",
     "tag": "Personalizable",
-    "imageType": "editorial",
-    "originalImage": "/assets/ornamentos-acrilicos.webp",
+    "imageType": "real",
     "featured": true
   },
   {
@@ -154,11 +152,10 @@ window.ECLIPSE_PRODUCTS = [
     "category": "adornos",
     "categoryLabel": "Adornos",
     "desc": "Adornos transparentes con detalles en su interior.",
-    "image": "/assets/editorial/bambalina-foto-editorial.webp",
+    "image": "/assets/bambalina-burbuja.webp",
     "pos": "center",
     "tag": "Especial",
-    "imageType": "editorial",
-    "originalImage": "/assets/bambalina-burbuja.webp",
+    "imageType": "real",
     "featured": true
   },
   {
@@ -167,12 +164,11 @@ window.ECLIPSE_PRODUCTS = [
     "category": "empaques",
     "categoryLabel": "Empaques y regalos",
     "desc": "Saquitos rojos de tela con cordón y detalles festivos para regalos, dulces y recuerdos.",
-    "image": "/assets/new/saquitos-rojos-ambientado.webp",
+    "image": "/assets/products/saquitos-encuadre-limpio.svg",
     "pos": "center",
     "tag": "Diseños disponibles",
     "imageType": "editorial",
-    "featured": false,
-    "originalImage": "/assets/new/saquitos-rojos-original.webp"
+    "featured": false
   },
   {
     "id": "banderines",
