@@ -160,3 +160,14 @@
 .category-tile{cursor:pointer;touch-action:manipulation}
 .category-tile:focus-visible{outline:3px solid #9a1830;outline-offset:4px}
 @media(prefers-reduced-motion:reduce){#catalogo{scroll-behavior:auto}}
+
+/* En móvil, el acceso flotante no debe tapar fotografías ni controles del catálogo. */
+@media (max-width:760px) {
+  .floating-wa { transition: opacity .2s ease, transform .2s ease, visibility .2s ease; }
+  .floating-wa.floating-wa--catalog-visible {
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transform:translateY(22px) scale(.86);
+  }
+}
