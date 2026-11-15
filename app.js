@@ -51,7 +51,7 @@
   function selectCategory(cat){
     const allowed=new Set(['todos','destacados',...products.map(p=>p.category)]);
     activeCategory=allowed.has(cat)?cat:'todos';
-    $('.cat').forEach(b=>{
+    $$('.cat').forEach(b=>{
       const active=b.dataset.cat===activeCategory;
       b.classList.toggle('active',active);
       b.setAttribute('aria-pressed',String(active));
@@ -109,7 +109,7 @@
       categoryBar.innerHTML=defaults+extra;
     }
     if(activeCategory!=='todos'&&activeCategory!=='destacados'&&!products.some(p=>p.category===activeCategory))activeCategory='todos';
-    $('.cat').forEach(b=>b.classList.toggle('active',b.dataset.cat===activeCategory));
+    $$('.cat').forEach(b=>b.classList.toggle('active',b.dataset.cat===activeCategory));
     render();updateCount();renderCart();
   });
   render();updateCount();renderCart();
