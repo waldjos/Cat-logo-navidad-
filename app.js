@@ -1,11 +1,11 @@
 (function () {
   'use strict';
   const PHONE = '584242573387';
-  const products = window.ECLIPSE_PRODUCTS;
+  let products = window.ECLIPSE_PRODUCTS;
   const links = window.ECLIPSE_LINKS;
   const $ = (selector, root=document) => root.querySelector(selector);
   const $$ = (selector, root=document) => Array.from(root.querySelectorAll(selector));
-  const dataById = Object.fromEntries(products.map(product=>[product.id,product]));
+  let dataById = Object.fromEntries(products.map(product=>[product.id,product]));
   function safeStorageGet(key,fallback) { try { const v=JSON.parse(localStorage.getItem(key)); return v===null?fallback:v; } catch(e) {return fallback;} }
   function save(key,obj) { try { localStorage.setItem(key,JSON.stringify(obj)); } catch(e) {} }
   const cart = safeStorageGet('eclipse_navidad_2026_lista', {});
@@ -49,7 +49,7 @@
     const dialog=$('#productDialog');if(dialog.showModal)dialog.showModal();else dialog.setAttribute('open','');}
   function closeDetail(){const d=$('#productDialog');if(d.close)d.close();else d.removeAttribute('open');}
   function selectCategory(cat){
-    const allowed=new Set(['todos','destacados','tazas','vasos','textiles','empaques','adornos','corporativos','accesorios']);
+    const allowed=new Set(['todos','destacados',...products.map(p=>p.category)]);
     activeCategory=allowed.has(cat)?cat:'todos';
     $('.cat').forEach(b=>{
       const active=b.dataset.cat===activeCategory;
@@ -95,6 +95,23 @@
     window.prompt('Copia el enlace del catálogo:',url);}
   $('#shareSite').addEventListener('click',shareSite);
   $('#floatingWhatsApp').addEventListener('click',()=>window.open(quoteUrl('Hola Eclipse, quisiera hacer una consulta sobre el Catálogo Navideño 2026.'),'_blank','noopener'));
+  window.addEventListener('eclipse:catalog-updated',event=>{
+    const next=event.detail && event.detail.products;
+    if(!Array.isArray(next))return;
+    products=next.filter(p=>p && p.id && p.name && p.image && p.published!==false);
+    dataById=Object.fromEntries(products.map(p=>[p.id,p]));
+    count.textContent=String(products.length);
+    const cats=event.detail.categories||[];
+    if(cats.length){
+      const categoryBar=$('#categorias');
+      const defaults='<button class="cat" data-cat="todos">Todos</button><button class="cat" data-cat="destacados">★ Destacados</button>';
+      const extra=cats.map(c=>'<button class="cat" data-cat="'+sanitize(c.id)+'">'+sanitize(c.name)+'</button>').join('');
+      categoryBar.innerHTML=defaults+extra;
+    }
+    if(activeCategory!=='todos'&&activeCategory!=='destacados'&&!products.some(p=>p.category===activeCategory))activeCategory='todos';
+    $('.cat').forEach(b=>b.classList.toggle('active',b.dataset.cat===activeCategory));
+    render();updateCount();renderCart();
+  });
   render();updateCount();renderCart();
   if(new URLSearchParams(location.search).get('lista')==='1') openCart();
 })();
