@@ -111,18 +111,6 @@ window.ECLIPSE_PRODUCTS = [
     "featured": false
   },
   {
-    "id": "bolsas-pop",
-    "name": "Bolsas POP personalizadas",
-    "category": "empaques",
-    "categoryLabel": "Empaques y regalos",
-    "desc": "Presenta regalos y promociones con tu logotipo.",
-    "image": "/assets/products/bolsas-pop.svg",
-    "pos": "center",
-    "tag": "Con tu marca",
-    "imageType": "referencial",
-    "featured": false
-  },
-  {
     "id": "bambalinas-logo",
     "name": "Bambalinas con logo",
     "category": "adornos",
@@ -159,6 +147,18 @@ window.ECLIPSE_PRODUCTS = [
     "featured": true
   },
   {
+    "id": "banderines",
+    "name": "Banderines de cascanueces",
+    "category": "adornos",
+    "categoryLabel": "Adornos",
+    "desc": "Banderines decorativos con diseño de cascanueces. Consulta medidas y opciones de personalización.",
+    "image": "/assets/new/banderines.jpeg",
+    "pos": "center",
+    "tag": "Foto real",
+    "imageType": "real",
+    "featured": false
+  },
+  {
     "id": "saquitos",
     "name": "Saquitos navideños personalizados",
     "category": "empaques",
@@ -171,15 +171,39 @@ window.ECLIPSE_PRODUCTS = [
     "featured": false
   },
   {
-    "id": "banderines",
-    "name": "Banderines de cascanueces",
-    "category": "adornos",
-    "categoryLabel": "Adornos",
-    "desc": "Banderines decorativos con diseño de cascanueces. Consulta medidas y opciones de personalización.",
-    "image": "/assets/new/banderines.jpeg",
+    "id": "bolsas-pop",
+    "name": "Bolsas POP personalizadas",
+    "category": "empaques",
+    "categoryLabel": "Empaques y regalos",
+    "desc": "Presenta regalos y promociones con tu logotipo.",
+    "image": "/assets/products/bolsas-pop.svg",
     "pos": "center",
-    "tag": "Foto real",
-    "imageType": "real",
+    "tag": "Con tu marca",
+    "imageType": "referencial",
+    "featured": false
+  },
+  {
+    "id": "bolsos-drill",
+    "name": "Bolsos en drill",
+    "category": "empaques",
+    "categoryLabel": "Empaques y regalos",
+    "desc": "Bolsos de regalo con diseños personalizados.",
+    "image": "/assets/products/bolsos-drill.svg",
+    "pos": "center",
+    "tag": "Con tu marca",
+    "imageType": "referencial",
+    "featured": false
+  },
+  {
+    "id": "latas",
+    "name": "Latas para regalos",
+    "category": "empaques",
+    "categoryLabel": "Empaques y regalos",
+    "desc": "Envases metálicos para presentar regalos. Imagen ilustrativa; confirmar modelos.",
+    "image": "/assets/products/latas-regalos.svg",
+    "pos": "center",
+    "tag": "Detalle especial",
+    "imageType": "referencial",
     "featured": false
   },
   {
@@ -203,30 +227,6 @@ window.ECLIPSE_PRODUCTS = [
     "image": "/assets/products/llaveros-acrilicos.svg",
     "pos": "center",
     "tag": "Personalizable",
-    "imageType": "referencial",
-    "featured": false
-  },
-  {
-    "id": "latas",
-    "name": "Latas para regalos",
-    "category": "empaques",
-    "categoryLabel": "Empaques y regalos",
-    "desc": "Envases metálicos para presentar regalos. Imagen ilustrativa; confirmar modelos.",
-    "image": "/assets/products/latas-regalos.svg",
-    "pos": "center",
-    "tag": "Detalle especial",
-    "imageType": "referencial",
-    "featured": false
-  },
-  {
-    "id": "bolsos-drill",
-    "name": "Bolsos en drill",
-    "category": "empaques",
-    "categoryLabel": "Empaques y regalos",
-    "desc": "Bolsos de regalo con diseños personalizados.",
-    "image": "/assets/products/bolsos-drill.svg",
-    "pos": "center",
-    "tag": "Con tu marca",
     "imageType": "referencial",
     "featured": false
   },
