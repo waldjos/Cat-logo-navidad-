@@ -171,3 +171,24 @@
     transform:translateY(22px) scale(.86);
   }
 }
+
+/* Fotos originales del catálogo: conmutador para las dos variantes de bolsos en drill. */
+.product-photo-controls {
+  position:absolute; right:8px; bottom:8px; z-index:5;
+  display:flex; align-items:center; gap:4px;
+  background:rgba(255,251,246,.94); border:1px solid #ead8cc;
+  border-radius:99px; padding:3px 5px; box-shadow:0 3px 12px #2a100c24;
+}
+.product-photo-controls button {
+  display:grid; place-items:center; border:0; background:#97152a; color:white;
+  width:28px; height:28px; border-radius:50%;
+  font-size:19px; line-height:1; padding:0; font-weight:500;
+  touch-action:manipulation;
+}
+.product-photo-controls button:focus-visible { outline:2px solid #f4c158; outline-offset:2px; }
+.product-photo-controls span {font-size:10px;font-weight:800;color:#6d1c2b;min-width:22px;text-align:center}
+@media (max-width:760px) {
+ .product-photo-controls {right:4px;bottom:5px;gap:2px;padding:2px 4px}
+ .product-photo-controls button {width:25px;height:25px;font-size:18px}
+ .product-photo-controls span {font-size:9px;min-width:20px}
+}
