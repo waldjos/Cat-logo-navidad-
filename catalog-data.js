@@ -175,11 +175,11 @@ window.ECLIPSE_PRODUCTS = [
     "name": "Bolsas POP personalizadas",
     "category": "empaques",
     "categoryLabel": "Empaques y regalos",
-    "desc": "Presenta regalos y promociones con tu logotipo.",
-    "image": "/assets/products/bolsas-pop.svg",
+    "desc": "Bolsas POP navideñas en verde y rojo, con estampados festivos. Consulta diseños y personalización.",
+    "image": "/assets/products/bolsas-pop-original.jpg",
     "pos": "center",
-    "tag": "Con tu marca",
-    "imageType": "referencial",
+    "tag": "Foto real",
+    "imageType": "real",
     "featured": false
   },
   {
@@ -187,12 +187,21 @@ window.ECLIPSE_PRODUCTS = [
     "name": "Bolsos en drill",
     "category": "empaques",
     "categoryLabel": "Empaques y regalos",
-    "desc": "Bolsos de regalo con diseños personalizados.",
-    "image": "/assets/products/bolsos-drill.svg",
-    "pos": "center",
-    "tag": "Con tu marca",
-    "imageType": "referencial",
-    "featured": false
+    "desc": "Bolsos de tela color natural con estampados navideños. Disponibles en diseños Santa y amigos o Grinch; consulta personalización.",
+    "image": "/assets/products/drill-santa-original.jpg",
+    "pos": "center 51%",
+    "tag": "2 diseños",
+    "imageType": "real",
+    "featured": false,
+    "originalImage": "/assets/products/drill-grinch-original.jpg",
+    "gallery": [
+      "/assets/products/drill-santa-original.jpg",
+      "/assets/products/drill-grinch-original.jpg"
+    ],
+    "galleryLabels": [
+      "Diseño Santa y amigos",
+      "Diseño Grinch"
+    ]
   },
   {
     "id": "mini-lanyards",
