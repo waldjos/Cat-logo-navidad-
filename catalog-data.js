@@ -195,18 +195,6 @@ window.ECLIPSE_PRODUCTS = [
     "featured": false
   },
   {
-    "id": "latas",
-    "name": "Latas para regalos",
-    "category": "empaques",
-    "categoryLabel": "Empaques y regalos",
-    "desc": "Envases metálicos para presentar regalos. Imagen ilustrativa; confirmar modelos.",
-    "image": "/assets/products/latas-regalos.svg",
-    "pos": "center",
-    "tag": "Detalle especial",
-    "imageType": "referencial",
-    "featured": false
-  },
-  {
     "id": "mini-lanyards",
     "name": "Mini lanyards",
     "category": "accesorios",
