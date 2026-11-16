@@ -209,8 +209,8 @@ window.ECLIPSE_PRODUCTS = [
     "category": "accesorios",
     "categoryLabel": "Accesorios",
     "desc": "Cintas cortas con enganche para personalización.",
-    "image": "/assets/accesorios.webp",
-    "pos": "0% 34%",
+    "image": "/assets/products/mini-lanyards-limpio.svg",
+    "pos": "center",
     "tag": "Útil",
     "imageType": "referencial",
     "featured": false
