@@ -26,7 +26,16 @@
   function label(p) {return p.categoryLabel;}
   function quoteUrl(message) {return 'https://wa.me/'+PHONE+'?text='+encodeURIComponent(message);}
   function productMessage(p) {return 'Hola Eclipse, deseo consultar el precio y personalización de '+p.name+'.\n📷 Foto y detalles: '+new URL(links.product(p.id),location.origin).href+'\n¿Me indican disponibilidad y opciones?';}
-  function mediaStyle(p) {return '--img:url('+p.image+');--pos:'+p.pos+';--size:'+(p.imageType==='referencial' && !p.image.endsWith('.svg')?'210% auto':'cover');}
+  const galleryIndex = Object.create(null);
+  function currentImage(p) {
+    const gallery=Array.isArray(p.gallery) && p.gallery.length>0 ? p.gallery : [p.image];
+    const index=(galleryIndex[p.id]||0)%gallery.length;
+    return gallery[index];
+  }
+  function mediaStyle(p) {
+    const photo=currentImage(p);
+    return '--img:url("'+photo+'");--pos:'+(p.pos||'center')+';--size:'+(p.imageType==='referencial' && !photo.endsWith('.svg')?'210% auto':'cover');
+  }
   function render() {
     const normalize=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('es');
     const q=normalize(searchValue.trim());
@@ -34,7 +43,12 @@
     $('#emptyState').hidden=visible.length!==0;
     grid.innerHTML=visible.map(p=>{
       const fav=favorites.includes(p.id);
-      return '<article class="product"><div class="product-figure"><button type="button" class="heart" aria-label="'+(fav?'Quitar de favoritos':'Guardar favorito')+'" aria-pressed="'+fav+'" data-favorite="'+p.id+'">'+(fav?'♥':'♡')+'</button><span class="product-badge">'+sanitize(p.tag)+'</span><a class="product-figure-link" href="'+links.product(p.id)+'" aria-label="Ver imagen y detalles de '+sanitize(p.name)+'"><div class="product-pic" style="'+mediaStyle(p)+'"></div></a><span class="source-label">'+(p.imageType==='editorial'?'Imagen ambientada':p.imageType==='real'?'Foto real':'Imagen referencial')+'</span></div><div class="product-body"><span class="product-category">'+sanitize(label(p))+'</span><h3 class="product-title"><a href="'+links.product(p.id)+'">'+sanitize(p.name)+'</a></h3><p class="product-text">'+sanitize(p.desc)+'</p><span class="price-label">Consultar precio</span><div class="product-actions"><button class="btn btn-red" type="button" data-add="'+p.id+'">Agregar a mi lista +</button><button class="details-btn" type="button" title="Ver detalles" aria-label="Ver detalles de '+sanitize(p.name)+'" data-detail="'+p.id+'">↗</button></div></div></article>';
+      const gallery=Array.isArray(p.gallery) ? p.gallery : [];
+      const idx=(galleryIndex[p.id]||0) % (gallery.length||1);
+      const photoControls=gallery.length>1
+        ? '<div class="product-photo-controls" role="group" aria-label="Fotos de '+sanitize(p.name)+'"><button type="button" data-photo-id="'+p.id+'" data-photo-step="-1" aria-label="Imagen anterior">‹</button><span aria-live="polite">'+(idx+1)+'/'+gallery.length+'</span><button type="button" data-photo-id="'+p.id+'" data-photo-step="1" aria-label="Siguiente imagen">›</button></div>'
+        : '';
+      return '<article class="product"><div class="product-figure"><button type="button" class="heart" aria-label="'+(fav?'Quitar de favoritos':'Guardar favorito')+'" aria-pressed="'+fav+'" data-favorite="'+p.id+'">'+(fav?'♥':'♡')+'</button><span class="product-badge">'+sanitize(p.tag)+'</span><a class="product-figure-link" href="'+links.product(p.id)+'" aria-label="Ver imagen y detalles de '+sanitize(p.name)+'"><div class="product-pic" style="'+mediaStyle(p)+'"></div></a><span class="source-label">'+(p.imageType==='editorial'?'Imagen ambientada':p.imageType==='real'?'Foto real':'Imagen referencial')+'</span>'+photoControls+'</div><div class="product-body"><span class="product-category">'+sanitize(label(p))+'</span><h3 class="product-title"><a href="'+links.product(p.id)+'">'+sanitize(p.name)+'</a></h3><p class="product-text">'+sanitize(p.desc)+'</p><span class="price-label">Consultar precio</span><div class="product-actions"><button class="btn btn-red" type="button" data-add="'+p.id+'">Agregar a mi lista +</button><button class="details-btn" type="button" title="Ver detalles" aria-label="Ver detalles de '+sanitize(p.name)+'" data-detail="'+p.id+'">↗</button></div></div></article>';
     }).join('');
   }
   function toast(message){const el=$('#toast');el.textContent=message;el.classList.add('show');window.clearTimeout(toastTimer);toastTimer=window.setTimeout(()=>el.classList.remove('show'),2700);}
@@ -88,7 +102,20 @@
   $('#searchToggle').addEventListener('click',()=>{document.location.hash='catalogo';$('#searchInput').focus();});
   $('#menuToggle').addEventListener('click',()=>{const nav=$('#navLinks');const opened=nav.classList.toggle('open');$('#menuToggle').setAttribute('aria-expanded',String(opened));});
   $$('#navLinks a').forEach(a=>a.addEventListener('click',()=>$('#navLinks').classList.remove('open')));
-  grid.addEventListener('click',e=>{const add=e.target.closest('[data-add]');if(add){addItem(add.dataset.add);return;}
+  grid.addEventListener('click',e=>{
+    const rotate=e.target.closest('[data-photo-step]');
+    if(rotate){
+      const p=dataById[rotate.dataset.photoId];
+      if(p && Array.isArray(p.gallery) && p.gallery.length>1){
+        galleryIndex[p.id]=((galleryIndex[p.id]||0)+Number(rotate.dataset.photoStep)+p.gallery.length)%p.gallery.length;
+        const selector='[data-photo-id="'+p.id+'"][data-photo-step="'+rotate.dataset.photoStep+'"]';
+        render();
+        const control=grid.querySelector(selector);
+        if(control)control.focus({preventScroll:true});
+      }
+      return;
+    }
+    const add=e.target.closest('[data-add]');if(add){addItem(add.dataset.add);return;}
     const details=e.target.closest('[data-detail]');if(details){detail(details.dataset.detail);return;}
     const fav=e.target.closest('[data-favorite]');if(fav){const id=fav.dataset.favorite;favorites=favorites.includes(id)?favorites.filter(x=>x!==id):[...favorites,id];save('eclipse_navidad_2026_favoritos',favorites);render();toast(favorites.includes(id)?'Guardado en favoritos.':'Eliminado de favoritos.');}});
   $('#cartButton').addEventListener('click',openCart);$('#closeDrawer').addEventListener('click',closeCart);$('#drawerBackdrop').addEventListener('click',closeCart);
