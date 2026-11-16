@@ -34,7 +34,7 @@
   }
   function mediaStyle(p) {
     const photo=currentImage(p);
-    return '--img:url("'+photo+'");--pos:'+(p.pos||'center')+';--size:'+(p.imageType==='referencial' && !photo.endsWith('.svg')?'210% auto':'cover');
+    return '--img:url('+photo+');--pos:'+(p.pos||'center')+';--size:'+(p.imageType==='referencial' && !photo.endsWith('.svg')?'210% auto':'cover');
   }
   function render() {
     const normalize=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('es');
